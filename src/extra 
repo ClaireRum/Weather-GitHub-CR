@@ -1,0 +1,42 @@
+function CurrentDate() {
+  let now = new Date();
+  let date = now.getDate();
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let day = days[now.getDay()];
+  let hours = now.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = now.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+  let CurrentDate = document.querySelector("#newDate");
+  CurrentDate.innerHTML = `${day}, ${hours} ${minutes}`;
+}
+CurrentDate();
+
+//// not working////
+
+function changeCityName(event) {
+  event.preventDefault();
+  let newCityName = document.querySelector("#search-input").value;
+  let city = document.querySelector("#city");
+
+  newCityName = newCityName.trim();
+  newCityName = newCityName.toLowerCase();
+
+  city.innerHTML = newCityName;
+  console.log(changeCityName);
+}
+
+let form = document.querySelector("button");
+form.addEventListener("submit", changeCityName);
